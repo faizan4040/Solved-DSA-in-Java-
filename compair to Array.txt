@@ -1,0 +1,21 @@
+ import java.util.*;
+ import java.util.Arrays;
+
+ 
+class pair{
+  
+  public static void main(String args[]){
+    int arr1[] = {1,2,2,2,3,4};
+    int arr2[] = {2,2,3,3}; 
+    
+    //check for array equal or not 
+    if (Arrays.equals(arr1, arr2))
+    System.out.println("same");
+  
+  else
+  
+    System.out.println("not same");
+
+}
+ 
+}
