@@ -1,0 +1,38 @@
+import java.util.*;
+
+//Binary Search implimentation
+
+public class BinarySearch{
+  public static void main(String args[]){
+    int arr[] = {2 ,3 , 4 ,10 , 12, 122};
+    int key =122;
+    
+    int ans = findIdx(arr, 0, 5, key);
+     // -1 measn return not found
+    if(ans == -1)
+      System.out.println("NOt Found");
+    else
+      System.out.println("Element Present at index"+ ans);
+  }
+  
+  public static int findIdx(int []arr, int s, int e, int key){
+    //base case:
+    
+    if(s > e)
+    return -1;
+    
+    // find mid
+    
+    int mid = (s + e)/2;
+    
+    if(arr[mid] == key)
+    return mid;
+    
+    if(arr[mid] < key)// search in right part
+    return findIdx(arr, mid+1, e, key);
+  else
+    return findIdx(arr, s, mid-1, key);
+
+}
+
+}
