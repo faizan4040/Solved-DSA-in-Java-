@@ -1,0 +1,59 @@
+// Spiral Matrix in 2D Array in java
+
+
+public class SpiralMatrix{
+    public static void PrintSpiral(int matrix[][]){
+        int startRow = 0;
+        int startCol = 0;
+        int endRow = matrix.length-1; //print row
+        int endCol = matrix[0].length-1; // print cols
+
+        while(startRow <= endRow && startCol <= endCol){
+            //top SC -> EC
+            for(int j=startCol; j<=endCol; j++){
+                   System.out.print(matrix[startRow][j]+" ");
+            }
+
+            // right SR+1 -> ER
+            for(int i=startRow+1; i<=endRow; i++){
+                System.out.print(matrix[i][endCol]+" ");
+            }
+
+
+            //bottom EC-1 -> SC
+            for(int j=endCol-1; j>=startCol; j--){
+                if(startCol == endCol){
+                    break;
+                }
+                System.out.print(matrix[endRow][j]+" ");
+            }
+
+            // left ER-1 -> SR+1
+            for(int i=endRow-1; i>=startRow+1; i--){
+                if(startCol == endCol){
+                    break;
+                }
+                System.out.print(matrix[i][startCol]+" ");
+            }    
+
+            startCol ++;
+            startRow ++;
+            endCol --;
+            endRow --;
+
+
+        }
+    }
+
+   public static void main(String args []){
+    int matrix[][] = {{1,2,3,4},
+                      {5,6,7,8},
+                      {9,10,11,12},
+                      {13,14,15,16}};
+      PrintSpiral(matrix);                
+   } 
+}
+
+__________________________ OUTPUT________________________________
+
+1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10
